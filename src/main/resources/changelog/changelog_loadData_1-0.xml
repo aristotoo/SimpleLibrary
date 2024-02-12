@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                   http://www.liquibase.org/xml/ns/pro
+                   http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="load_data-person" author="Bogdan">
+        <loadData tableName="person" file="changelog/initDataPerson.csv">
+            <column name="full_name" type="VARCHAR(150)"/>
+            <column name="year_of_birth" type="VARCHAR(4)"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="load_data-books" author="Bogdan">
+        <loadData tableName="book" file="changelog/initDataBook.csv">
+            <column name="person_id" type="INTEGER"/>
+            <column name="title" type="VARCHAR(200)"/>
+            <column name="author" type="VARCHAR(150)"/>
+            <column name="year" type="VARCHAR(4)"/>
+        </loadData>
+    </changeSet>
+
+
+</databaseChangeLog>
