@@ -1,0 +1,6 @@
+.db-data
+.idea
+.gitignore
+*.env
+target
+*.env.example

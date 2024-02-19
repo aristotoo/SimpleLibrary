@@ -1,0 +1,28 @@
+version: '3'
+services:
+    db:
+        image: postgres:16
+
+        ports:
+            - "15432:5432"
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        volumes:
+            - ./infrastructure/db/1-create_db.sql:/docker-entrypoint-initdb.d/1-create_db.sql
+            - .db-data:/var/lib/postgresql/data
+        restart: unless-stopped
+
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+        environment:
+            DB_URL: jdbc:postgresql://db/library_db
+
+volumes:
+    db-data:

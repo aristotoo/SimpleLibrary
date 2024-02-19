@@ -1,0 +1,4 @@
+CREATE DATABASE library_db;
+\c library_db;
+CREATE SCHEMA IF NOT EXISTS service;
+CREATE SCHEMA IF NOT EXISTS data;

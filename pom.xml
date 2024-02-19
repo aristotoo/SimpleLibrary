@@ -105,21 +105,15 @@
   </dependencies>
   <build>
     <finalName>SimpleLibrary</finalName>
-<!--    <pluginManagement>-->
-<!--      <plugins>-->
-<!--        <plugin>-->
-<!--          <groupId>org.liquibase</groupId>-->
-<!--          <artifactId>liquibase-maven-plugin</artifactId>-->
-<!--          <version>${liquibase.version}</version>-->
-<!--          <configuration>-->
-<!--            <driver>org.postgresql.Driver</driver>-->
-<!--            <url>jdbc:postgresql://localhost:5432/library_db</url>-->
-<!--            <username>postgres</username>-->
-<!--            <password>root</password>-->
-<!--            <outputChangeLogFile>src/main/resources/liquibase-masterChangeLog.xml</outputChangeLogFile>-->
-<!--          </configuration>-->
-<!--        </plugin>-->
-<!--      </plugins>-->
-<!--    </pluginManagement>-->
+    <defaultGoal>install</defaultGoal>
+
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+      </plugins>
+
   </build>
 </project>
